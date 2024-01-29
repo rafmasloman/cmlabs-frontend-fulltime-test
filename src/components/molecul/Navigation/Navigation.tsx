@@ -1,17 +1,25 @@
 import NavbarLink from '@/components/atomic/Navigation/NavbarLink';
 import { NavigationRoutes } from '@/utils/NavigationRoutes';
 import React from 'react';
+import { INavigationPropsTypes } from './interfaces/NavigationInterface';
 
-const Navigation = () => {
+const Navigation = ({ isActive }: INavigationPropsTypes) => {
   return (
-    <ul>
+    <ul
+      className={`lg:flex ${
+        !isActive
+          ? 'hidden md:flex'
+          : 'h-screen flex flex-col items-center justify-evenly '
+      }`}
+    >
       {NavigationRoutes.map((navItem) => {
         return (
-          <NavbarLink
+          <li
             key={navItem.id}
-            href={navItem.href}
-            text={navItem.text}
-          />
+            className={`my-5 text-xl border-solid border-b-[3px] border-transparent hover:border-black  lg:my-0 md:mx-7 md:text-base`}
+          >
+            <NavbarLink href={navItem.href} text={navItem.text} />
+          </li>
         );
       })}
     </ul>
