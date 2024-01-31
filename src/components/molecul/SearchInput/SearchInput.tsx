@@ -20,9 +20,9 @@ const SearchInput = ({ onSearch }: ISearchInputProps) => {
 
         <button
           type="submit"
-          className="bg-primary-color px-3.5 md:px-3 lg:px-2.5 rounded-full"
+          className="bg-primary-color px-3.5 md:px-3  rounded-full"
         >
-          <IconSearch className="text-white w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7  xl:w-10 xl:h-10" />
+          <IconSearch className="text-white w-5 h-5 md:w-6 md:h-6 " />
         </button>
       </div>
     </form>
