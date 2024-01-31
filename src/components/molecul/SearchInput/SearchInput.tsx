@@ -2,6 +2,7 @@ import { useSearch } from '@/hooks/useSearch';
 import React, { FormEvent } from 'react';
 import { ISearchInputProps } from './interfaces/SearchInpu.interfaces';
 import { IconSearch } from '@tabler/icons-react';
+import Button from '@/components/atomic/Button/Button';
 
 const SearchInput = ({ onSearch }: ISearchInputProps) => {
   const { searchValue, handleSearchChange, handleSubmit } = useSearch({
@@ -18,12 +19,12 @@ const SearchInput = ({ onSearch }: ISearchInputProps) => {
           className="bg-white flex-1 border-solide border-[1px] px-3.5 py-2.5 rounded-full focus:outline-none focus:border-primary-color"
         />
 
-        <button
+        <Button
           type="submit"
           className="bg-primary-color px-3.5 md:px-3  rounded-full"
         >
           <IconSearch className="text-white w-5 h-5 md:w-6 md:h-6 " />
-        </button>
+        </Button>
       </div>
     </form>
   );

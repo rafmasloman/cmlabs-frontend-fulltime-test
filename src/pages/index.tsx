@@ -16,13 +16,15 @@ export default function Home() {
     <MainLayout>
       <HeaderNavbar />
 
+      <div className="my-10"></div>
+
       <section className="container h-[400px]">
         <Hero />
       </section>
 
-      <section className="container">
-        <div className="my-7"></div>
+      <div className="my-10"></div>
 
+      <section className="container">
         <HeaderSection title={'Our Best Ingredients'} textLink="Lihat Semua">
           <div className="space-x-1 md:space-x-3 flex items-center bg-primary-color px-2.5 py-2 md:px-3.5 rounded-full">
             <Link

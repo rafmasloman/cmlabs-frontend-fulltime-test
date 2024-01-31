@@ -10,13 +10,13 @@ const Card = ({ name, imgUrl, description, id, href }: ICardPropsTypes) => {
     <div
       className={`bg-white px-10 py-7 border-solide border-[1px] border-slate-300 rounded-xl shadow-md hover:shadow-lg lg:w-[270px]`}
     >
-      <div className="flex justify-center">
+      <div className="flex justify-center bg-gray-100 rounded-full p-3 md:p-7">
         <Image
           src={imgUrl!}
           alt={name}
           width={150}
           height={150}
-          className="w-[120px] lg:w-full"
+          className="w-[120px]  lg:w-full lg:h-full"
         />
       </div>
 

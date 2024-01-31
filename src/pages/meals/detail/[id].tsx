@@ -6,6 +6,15 @@ import { IQueryMealDetailDataResponse } from '@/interfaces/Meal';
 import MealsApiService from '@/services/MealServices';
 import { mergeIngredients, mergeMeasurements } from '@/utils/Common';
 import { MealDetailSchema } from '@/utils/Schema';
+import {
+  IconCategory,
+  IconCategory2,
+  IconCategoryPlus,
+  IconLink,
+  IconMapPin,
+  IconMapPin2,
+  IconPlus,
+} from '@tabler/icons-react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,7 +52,8 @@ const IngredientDetailPage = ({ response }: any) => {
     setMeals(meal);
   }, [response]);
 
-  console.log(meals?.strYoutube.replace('watch?', 'embed/'));
+  const instructionSplit = meals?.strInstructions.split('.');
+  console.log('instruct : ', instructionSplit);
 
   return (
     <MainLayout>
@@ -65,64 +75,39 @@ const IngredientDetailPage = ({ response }: any) => {
       <div className="h-16"></div>
 
       <section className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="lg:col-span-1">
-            <Image
-              src={meals?.strMealThumb}
-              width={500}
-              height={500}
-              alt={meals?.strMeal}
-              className="rounded-2xl w-full"
-              priority={true}
-            />
+        <h1 className="font-bold text-xl md:text-4xl lg:text-5xl">
+          {meals?.strMeal}
+        </h1>
+
+        <div className="flex space-x-5 mt-5">
+          <div className="flex items-center space-x-1">
+            <IconMapPin className="text-secondary-color w-[20px ] h-[20px] md:w-[25px] md:h-[25px] " />
+            <p className="text-sm md:text-base lg:text-lg text-orange-800">
+              {meals?.strArea}
+            </p>
           </div>
 
-          <div className="col-span-2">
-            <article>
-              <p className="text-justify">{meals?.strInstructions}</p>
+          <div className="h-6 bg-secondary-color w-[1px]"></div>
 
-              <div className="h-4"></div>
+          <div className="flex items-center space-x-1">
+            <IconCategoryPlus className="text-secondary-color w-[20px ] h-[20px] md:w-[25px] md:h-[25px]" />
+            <p className="text-sm md:text-base lg:text-lg text-orange-800">
+              {meals?.strCategory}
+            </p>
+          </div>
 
-              <div className="grid grid-cols-3">
-                <p className="col-span-1">Ingredients</p>
+          <div className="h-6 bg-secondary-color w-[1px]"></div>
 
-                <div className="col-span-2 grid grid-cols-3 gap-x-10 gap-y-2.5">
-                  {mergeIngredients(meals).map(
-                    (ingredient: string, index: number) => {
-                      return <p key={index}>{ingredient}</p>;
-                    },
-                  )}
-                </div>
-              </div>
+          <div className="flex items-center space-x-1">
+            <IconLink className="text-secondary-color w-[20px ] h-[20px] md:w-[25px] md:h-[25px]" />
 
-              <div className="h-4"></div>
-
-              <div className="grid grid-cols-3">
-                <p className="col-span-1">Measurements</p>
-
-                <div className="col-span-2 grid grid-cols-3 gap-x-10 gap-y-2.5">
-                  {mergeMeasurements(meals).map(
-                    (ingredient: string, index: number) => {
-                      return <p key={index}>{ingredient}</p>;
-                    },
-                  )}
-                </div>
-              </div>
-
-              <div className="h-4"></div>
-
-              <div className="grid grid-cols-3">
-                <p className="col-span-1">Link Sumber</p>
-
-                <Link
-                  href={meals?.strSource || '/'}
-                  className="col-span-2 underline text-violet-800"
-                  target="_blank"
-                >
-                  Jump to Link
-                </Link>
-              </div>
-            </article>
+            <Link
+              href={meals?.strSource || '/'}
+              className=" underline text-sm md:text-base lg:text-lg"
+              target="_blank"
+            >
+              Lihat Sumber
+            </Link>
           </div>
         </div>
       </section>
@@ -130,11 +115,100 @@ const IngredientDetailPage = ({ response }: any) => {
       <div className="h-16"></div>
 
       <section className="container">
-        <iframe
-          src={meals?.strYoutube.replace('watch?v=', 'embed/')}
-          className="w-full aspect-video"
-          allowFullScreen
-        ></iframe>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="">
+            <Image
+              src={meals?.strMealThumb}
+              width={500}
+              height={500}
+              alt={meals?.strMeal}
+              className="rounded-2xl w-full h-[250px] md:h-[400px] lg:h-[500px]"
+              priority={true}
+              quality={100}
+            />
+          </div>
+
+          <article className="">
+            <h2 className="font-bold text-3xl">How to Cook ?</h2>
+            <table className="border-separate border-spacing-y-3">
+              <tbody>
+                {instructionSplit?.map((instruction: string, index: number) => {
+                  return !instruction ? null : (
+                    <tr key={index}>
+                      <td>
+                        <p className="text-justify mr-3 px-2.5 py-1 rounded-lg text-white bg-primary-color flex items-center justify-center">
+                          {index}
+                        </p>
+                      </td>
+                      <td>
+                        <p className="text-justify">{instruction}</p>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </section>
+
+      <div className="h-12"></div>
+
+      <section className="container">
+        <div className="flex flex-col xl:flex-row justify-between gap-16">
+          <article className="flex flex-col lg:flex-row lg:space-x-10">
+            <div className="">
+              <div className="flex  items-center justify-between bg-secondary-color w-[270px] px-3 py-1.5 rounded-lg">
+                <h3 className="text-lg font-medium  text-white   ">
+                  Ingredients
+                </h3>
+
+                <IconPlus color="white" size={20} />
+              </div>
+
+              <div className="mt-5">
+                {mergeIngredients(meals).map(
+                  (ingredient: string, index: number) => {
+                    return (
+                      <li key={index} className="my-2.5">
+                        {ingredient}
+                      </li>
+                    );
+                  },
+                )}
+              </div>
+            </div>
+
+            <div className="h-4"></div>
+
+            <div className="">
+              <div className="flex  items-center justify-between bg-primary-color w-[270px] px-3 py-1.5 rounded-lg">
+                <h3 className="text-lg font-medium  text-white   ">
+                  Measurements
+                </h3>
+
+                <IconPlus color="white" size={20} />
+              </div>
+
+              <div className="mt-5">
+                {mergeMeasurements(meals).map(
+                  (ingredient: string, index: number) => {
+                    return (
+                      <li key={index} className="my-2.5">
+                        {ingredient}
+                      </li>
+                    );
+                  },
+                )}
+              </div>
+            </div>
+          </article>
+
+          <iframe
+            src={meals?.strYoutube.replace('watch?v=', 'embed/')}
+            className="aspect-video w-full rounded-3xl drop-shadow-lg"
+          ></iframe>
+        </div>
       </section>
     </MainLayout>
   );

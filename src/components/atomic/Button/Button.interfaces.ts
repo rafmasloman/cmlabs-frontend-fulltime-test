@@ -1,3 +1,7 @@
+import { ReactNode } from 'react';
+
 export interface IButtonPropsTypes {
-  text: string;
+  type: 'submit' | 'button' | 'reset' | undefined;
+  children: ReactNode;
+  className?: string;
 }
