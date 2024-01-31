@@ -1,5 +1,7 @@
 import MealsList from '@/components/molecul/List/MealsList';
+import SearchInput from '@/components/molecul/SearchInput/SearchInput';
 import HeaderNavbar from '@/components/organism/Header/HeaderNavbar';
+import HeaderSection from '@/components/organism/Header/HeaderSection';
 import MainLayout from '@/components/organism/Layouts/MainLayout';
 import { useGetFilterIngredients } from '@/hooks/useGetFilterIngredients';
 import InggredientsApiService from '@/services/IngredientsServices';
@@ -30,6 +32,27 @@ const IngredientDetailPage = ({ response }: any) => {
     setMeals(response?.meals);
   }, [response]);
 
+  const [searchValue, setSearchValue] = useState('');
+
+  console.log(response?.meals);
+
+  const handleOnSearch = (searchTerm: string) => {
+    setSearchValue(searchTerm);
+  };
+
+  const filterMeasurement = response?.meals?.filter((ingredient: any) => {
+    return ingredient.strMeal.toLowerCase().includes(searchValue.toLowerCase());
+  });
+
+  console.log(filterMeasurement);
+  console.log('search : ', searchValue);
+
+  //   const filterIngredients = response?.meals?.filter((ingredient: any) => {
+  //     return ingredient.strIngredient
+  //       .toLowerCase()
+  //       .includes(searchValue.toLowerCase());
+  //   });
+
   return (
     <MainLayout>
       <HeaderNavbar />
@@ -37,14 +60,15 @@ const IngredientDetailPage = ({ response }: any) => {
       <div className="h-10"></div>
 
       <section className="container">
-        <div>
-          <h1 className="text-lg md:text-2xl lg:text-4xl font-semibold">
-            {query.name}
-          </h1>
-        </div>
+        <HeaderSection title={query.name as string} textLink="" divider={true}>
+          <SearchInput onSearch={handleOnSearch} />
+        </HeaderSection>
+      </section>
 
-        <div className="w-full h-[1.5px] bg-slate-300 my-5"></div>
-        <MealsList meals={meals} />
+      <section className="container">
+        <MealsList
+          meals={!filterMeasurement?.length ? meals : filterMeasurement}
+        />
       </section>
     </MainLayout>
   );

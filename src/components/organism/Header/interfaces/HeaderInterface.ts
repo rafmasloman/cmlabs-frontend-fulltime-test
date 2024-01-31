@@ -4,4 +4,5 @@ export interface IHeaderSection {
   title: string;
   textLink: string;
   children: ReactNode;
+  divider?: boolean;
 }

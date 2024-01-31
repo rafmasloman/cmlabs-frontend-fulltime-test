@@ -3,13 +3,24 @@ import Link from 'next/link';
 import React from 'react';
 import { IHeaderSection } from './interfaces/HeaderInterface';
 
-const HeaderSection = ({ textLink, title, children }: IHeaderSection) => {
+const HeaderSection = ({
+  textLink,
+  title,
+  children,
+  divider,
+}: IHeaderSection) => {
   return (
-    <div className="flex justify-between items-center">
-      <h3 className="text-sm md:text-lg lg:text-xl font-medium">{title}</h3>
+    <>
+      <div className="flex flex-col md:flex-row justify-between items-center">
+        <h3 className="text-sm md:text-lg lg:text-xl font-medium">{title}</h3>
 
-      {children}
-    </div>
+        {children}
+      </div>
+
+      {!divider ? null : (
+        <div className="w-full h-[1px] bg-slate-300 my-8"></div>
+      )}
+    </>
   );
 };
 

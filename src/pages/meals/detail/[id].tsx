@@ -129,13 +129,13 @@ const IngredientDetailPage = ({ response }: any) => {
 
       <div className="h-16"></div>
 
-      <div>
+      <section className="container">
         <iframe
           src={meals?.strYoutube.replace('watch?v=', 'embed/')}
-          className="aspect-video"
+          className="w-full aspect-video"
           allowFullScreen
         ></iframe>
-      </div>
+      </section>
     </MainLayout>
   );
 };
