@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 export const useGetFilterIngredients = (ingredientName?: string) => {
   const { query } = useRouter();
-  console.log(query);
 
   const [ingredientFilter, setIngredientFilter] = useState<any>([]);
 
@@ -15,9 +14,7 @@ export const useGetFilterIngredients = (ingredientName?: string) => {
           query.name as string,
         );
         setIngredientFilter(data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
 
     fetchData();

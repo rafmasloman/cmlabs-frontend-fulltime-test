@@ -8,7 +8,6 @@ import Card from '@/components/molecul/Card/Card';
 type Props = {};
 
 const IngredientsList = ({ meals }: IIngredientsListDataResponse) => {
-  console.log('meals : ', meals);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-x-20 lg:gap-y-10 md:justify-items-center">

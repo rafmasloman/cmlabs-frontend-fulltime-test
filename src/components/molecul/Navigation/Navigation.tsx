@@ -16,7 +16,7 @@ const Navigation = ({ isActive }: INavigationPropsTypes) => {
         return (
           <li
             key={navItem.id}
-            className={`my-5 text-xl border-solid border-b-[3px] border-transparent hover:border-black  lg:my-0 md:mx-7 md:text-base`}
+            className={`my-5 text-xl border-solid border-b-[3px] border-transparent hover:border-secondary-color lg:my-0 md:mx-7 md:text-base`}
           >
             <NavbarLink href={navItem.href} text={navItem.text} />
           </li>

@@ -16,7 +16,9 @@ class MealsApiService {
         },
       );
 
-      return response;
+      const data = response.data;
+
+      return data;
     } catch (error) {
       throw error;
     }
