@@ -13,8 +13,12 @@ class InggredientsApiService {
         },
       });
 
-      return response;
+      const data = response.data;
+
+      return data;
     } catch (error) {
+      console.log('error : ', error);
+
       throw error;
     }
   }
@@ -31,7 +35,9 @@ class InggredientsApiService {
         },
       );
 
-      return response;
+      const data = response.data;
+
+      return data;
     } catch (error) {
       throw error;
     }

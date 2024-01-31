@@ -1,19 +1,35 @@
 import Image from 'next/image';
 import { Poppins, Plus_Jakarta_Sans } from 'next/font/google';
-import Navigation from '@/components/molecul/Navigation/Navigation';
 import HeaderNavbar from '@/components/organism/Header/HeaderNavbar';
-
-const jakarta_sans = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-});
+import { useGetIngredientsList } from '@/hooks/useGetIngredientsList';
+import MainLayout from '@/components/organism/Layouts/MainLayout';
+import HeaderSection from '@/components/organism/Header/HeaderSection';
+import Hero from '@/components/organism/Hero/Hero';
+import IngredientsList from '@/components/molecul/List/IngredientList';
 
 export default function Home() {
+  const { ingredientsList } = useGetIngredientsList();
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between  md:px-16 md:py-10 lg:px-24   ${jakarta_sans.className}`}
-    >
+    <MainLayout>
       <HeaderNavbar />
-    </main>
+
+      <section className="container h-[400px]">
+        <Hero />
+      </section>
+
+      <section className="container">
+        <div className="my-7"></div>
+
+        <HeaderSection
+          title={'Our Best Ingredients'}
+          textLink="Lihat Semua"
+          href="/ingredients"
+        />
+
+        <div className="my-7"></div>
+        <IngredientsList meals={ingredientsList?.meals?.slice(0, 10)} />
+      </section>
+    </MainLayout>
   );
 }

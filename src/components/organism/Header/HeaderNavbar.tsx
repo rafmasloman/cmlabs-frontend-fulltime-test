@@ -11,7 +11,7 @@ const HeaderNavbar = () => {
 
   return (
     <section
-      className={`container w-full p-5  ${
+      className={`container w-full   ${
         !isNavigationActive ? ' h-fit ' : 'h-screen '
       } md:flex md:p-0 items-center justify-between `}
     >
