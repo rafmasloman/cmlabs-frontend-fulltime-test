@@ -43,6 +43,8 @@ const IngredientDetailPage = ({ response }: any) => {
     setMeals(meal);
   }, [response]);
 
+  console.log(meals?.strYoutube.replace('watch?', 'embed/'));
+
   return (
     <MainLayout>
       <HeaderNavbar />
@@ -58,9 +60,11 @@ const IngredientDetailPage = ({ response }: any) => {
           meal_name={meals?.strMeal}
           location={meals?.strArea}
         />
+      </section>
 
-        <div className="h-16"></div>
+      <div className="h-16"></div>
 
+      <section className="container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="lg:col-span-1">
             <Image
@@ -122,6 +126,16 @@ const IngredientDetailPage = ({ response }: any) => {
           </div>
         </div>
       </section>
+
+      <div className="h-16"></div>
+
+      <div>
+        <iframe
+          src={meals?.strYoutube.replace('watch?v=', 'embed/')}
+          className="aspect-video"
+          allowFullScreen
+        ></iframe>
+      </div>
     </MainLayout>
   );
 };
