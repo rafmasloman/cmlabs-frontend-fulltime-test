@@ -2,6 +2,7 @@ import NavbarLink from '@/components/atomic/Navigation/NavbarLink';
 import { NavigationRoutes } from '@/utils/NavigationRoutes';
 import React from 'react';
 import { INavigationPropsTypes } from './interfaces/NavigationInterface';
+import { useRouter } from 'next/router';
 
 const Navigation = ({ isActive }: INavigationPropsTypes) => {
   return (

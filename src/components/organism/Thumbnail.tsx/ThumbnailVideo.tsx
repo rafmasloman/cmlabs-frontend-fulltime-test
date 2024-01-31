@@ -34,7 +34,7 @@ const ThumbnailVideo = ({
 
     <div className="relative ">
       <div
-        className={`h-[180px] md:h-[250px] lg:h-[320px] opacity-95 brightness-50  w-full rounded-2xl lg:rounded-3xl bg-no-repeat bg-cover  bg-center`}
+        className={`h-[180px] md:h-[250px] lg:h-[350px] opacity-95 brightness-50  w-full rounded-2xl lg:rounded-3xl bg-no-repeat bg-cover  bg-center`}
         style={{ backgroundImage: `url(${thumbnail_img})` }}
       ></div>
 
@@ -43,7 +43,7 @@ const ThumbnailVideo = ({
           <div
             className={`w-fit px-2 py-1 md:px-5 md:py-1.5 rounded-xl bg-secondary-color`}
           >
-            <h3 className="text-xs md:text-sm">{category}</h3>
+            <h3 className="text-xs md:text-sm ">{category}</h3>
           </div>
 
           <p className="text-sm md:text-3xl lg:text-4xl mt-3.5 ">{meal_name}</p>
@@ -51,14 +51,14 @@ const ThumbnailVideo = ({
             {instruction}
           </p>
 
-          <div className="flex items-center ">
+          <div className="flex items-center mt-2.5">
             <IconMapCheck className="w-3.5 h-3.5 md:w-5 md:h-5" />
-            <p className="text-xs lg:text-base ml-2">{location}</p>
+            <p className="text-xs lg:text-base ml-2 ">{location}</p>
           </div>
 
-          <Link href={youtube_link} target="_blank">
+          <Link href={!youtube_link ? '/' : youtube_link} target="_blank">
             <button className="bg-primary-color py-3 px-3 text-xs lg:text-base lg:px-10 lg:py-3 rounded-xl mt-5">
-              Watch
+              Watch Tutorials
             </button>
           </Link>
         </div>

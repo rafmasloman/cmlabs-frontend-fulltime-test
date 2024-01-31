@@ -4,8 +4,11 @@ import MainLayout from '@/components/organism/Layouts/MainLayout';
 import ThumbnailVideo from '@/components/organism/Thumbnail.tsx/ThumbnailVideo';
 import { IQueryMealDetailDataResponse } from '@/interfaces/Meal';
 import MealsApiService from '@/services/MealServices';
+import { mergeIngredients, mergeMeasurements } from '@/utils/Common';
 import { MealDetailSchema } from '@/utils/Schema';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -28,8 +31,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 const IngredientDetailPage = ({ response }: any) => {
   const { query } = useRouter();
-  const [meals, setMeals] =
-    useState<IQueryMealDetailDataResponse>(MealDetailSchema);
+  const [meals, setMeals] = useState<any>(MealDetailSchema);
+
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     const meal = response?.meals.find((meal: IQueryMealDetailDataResponse) => {
@@ -54,6 +58,69 @@ const IngredientDetailPage = ({ response }: any) => {
           meal_name={meals?.strMeal}
           location={meals?.strArea}
         />
+
+        <div className="h-16"></div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="lg:col-span-1">
+            <Image
+              src={meals?.strMealThumb}
+              width={500}
+              height={500}
+              alt={meals?.strMeal}
+              className="rounded-2xl w-full"
+              priority={true}
+            />
+          </div>
+
+          <div className="col-span-2">
+            <article>
+              <p className="text-justify">{meals?.strInstructions}</p>
+
+              <div className="h-4"></div>
+
+              <div className="grid grid-cols-3">
+                <p className="col-span-1">Ingredients</p>
+
+                <div className="col-span-2 grid grid-cols-3 gap-x-10 gap-y-2.5">
+                  {mergeIngredients(meals).map(
+                    (ingredient: string, index: number) => {
+                      return <p key={index}>{ingredient}</p>;
+                    },
+                  )}
+                </div>
+              </div>
+
+              <div className="h-4"></div>
+
+              <div className="grid grid-cols-3">
+                <p className="col-span-1">Measurements</p>
+
+                <div className="col-span-2 grid grid-cols-3 gap-x-10 gap-y-2.5">
+                  {mergeMeasurements(meals).map(
+                    (ingredient: string, index: number) => {
+                      return <p key={index}>{ingredient}</p>;
+                    },
+                  )}
+                </div>
+              </div>
+
+              <div className="h-4"></div>
+
+              <div className="grid grid-cols-3">
+                <p className="col-span-1">Link Sumber</p>
+
+                <Link
+                  href={meals?.strSource || '/'}
+                  className="col-span-2 underline text-violet-800"
+                  target="_blank"
+                >
+                  Jump to Link
+                </Link>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
     </MainLayout>
   );
