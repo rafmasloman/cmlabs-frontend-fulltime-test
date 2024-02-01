@@ -1,3 +1,4 @@
+import SEO from '@/components/atomic/SEO/SEO';
 import MealsList from '@/components/molecul/List/MealsList';
 import HeaderNavbar from '@/components/organism/Header/HeaderNavbar';
 import MainLayout from '@/components/organism/Layouts/MainLayout';
@@ -54,6 +55,16 @@ const IngredientDetailPage = ({ response }: any) => {
 
   return (
     <MainLayout>
+      <SEO title="Detail Meal" description="Recipe Food Website" content="">
+        <meta name="og:title" content={'Halaman Detail Meal'} />
+        <meta
+          name="og:description"
+          content={
+            'This website provide you Meal Image, Description or Tutorial How to cook the meal with Ingredients and Measurement, Recipe,and Youtube Embedded Link'
+          }
+        />
+      </SEO>
+
       <HeaderNavbar />
 
       <div className="h-10"></div>

@@ -1,3 +1,4 @@
+import SEO from '@/components/atomic/SEO/SEO';
 import MealsList from '@/components/molecul/List/MealsList';
 import SearchInput from '@/components/molecul/SearchInput/SearchInput';
 import HeaderNavbar from '@/components/organism/Header/HeaderNavbar';
@@ -50,6 +51,18 @@ const IngredientDetailPage = ({ response }: any) => {
 
   return (
     <MainLayout>
+      <SEO
+        title={`${query.name} Foods`}
+        description="Recipe Food Website"
+        content=""
+      >
+        <meta name="og:title" content={`${query.name} All Food Varianst`} />
+        <meta
+          name="og:description"
+          content={`${query.name}$ with all foods variants`}
+        />
+      </SEO>
+
       <HeaderNavbar />
 
       <div className="h-10"></div>

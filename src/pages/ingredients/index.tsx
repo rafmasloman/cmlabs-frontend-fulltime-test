@@ -1,3 +1,4 @@
+import SEO from '@/components/atomic/SEO/SEO';
 import IngredientsList from '@/components/molecul/List/IngredientList';
 import SearchInput from '@/components/molecul/SearchInput/SearchInput';
 import HeaderNavbar from '@/components/organism/Header/HeaderNavbar';
@@ -29,6 +30,18 @@ const IngredientsPage = (props: Props) => {
 
   return (
     <MainLayout>
+      <SEO
+        title="Ingredients Meal"
+        description="Recipe Food Website"
+        content=""
+      >
+        <meta name="og:title" content={'Halaman Ingredients'} />
+        <meta
+          name="og:description"
+          content={'Ingredients Meals with variants'}
+        />
+      </SEO>
+
       <HeaderNavbar />
 
       <section className="container">

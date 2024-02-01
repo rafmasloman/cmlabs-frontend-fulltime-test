@@ -9,12 +9,21 @@ import IngredientsList from '@/components/molecul/List/IngredientList';
 import Link from 'next/link';
 import { IconArrowRight } from '@tabler/icons-react';
 import BackgroundImage from '../assets/images/thumbnail-bg.png';
+import SEO from '@/components/atomic/SEO/SEO';
 
 export default function Home() {
   const { ingredientsList } = useGetIngredientsList();
 
   return (
     <MainLayout>
+      <SEO title="Homepage" description="Recipe Food Website" content="">
+        <meta name="og:title" content={'Halaman Utama'} />
+        <meta
+          name="og:description"
+          content={'Website Food Recipe for your meal'}
+        />
+      </SEO>
+
       <HeaderNavbar />
 
       <div className="my-10"></div>
