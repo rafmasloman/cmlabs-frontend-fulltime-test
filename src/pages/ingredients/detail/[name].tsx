@@ -52,7 +52,7 @@ const IngredientDetailPage = ({ response }: any) => {
   return (
     <MainLayout>
       <SEO
-        title={`${query.name} Foods`}
+        title={`${!query.name ? 'Loading...' : query.name} Foods`}
         description="Recipe Food Website"
         content=""
       >
