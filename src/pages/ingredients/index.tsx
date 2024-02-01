@@ -33,11 +33,7 @@ const IngredientsPage = (props: Props) => {
       <section className="container">
         <div className="my-7"></div>
 
-        <HeaderSection
-          title={'All List Ingredients'}
-          textLink="Lihat Semua"
-          divider={true}
-        >
+        <HeaderSection title={'All List Ingredients'} divider={true}>
           <SearchInput onSearch={handleOnSearch} />
         </HeaderSection>
 

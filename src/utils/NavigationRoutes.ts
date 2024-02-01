@@ -6,11 +6,6 @@ export const NavigationRoutes = [
   },
   {
     id: 2,
-    href: '/foods',
-    text: 'Foods',
-  },
-  {
-    id: 3,
     href: '/ingredients',
     text: 'Ingredients',
   },

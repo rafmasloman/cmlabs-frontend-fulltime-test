@@ -60,7 +60,7 @@ const IngredientDetailPage = ({ response }: any) => {
       <div className="h-10"></div>
 
       <section className="container">
-        <HeaderSection title={query.name as string} textLink="" divider={true}>
+        <HeaderSection title={query.name as string} divider={true}>
           <SearchInput onSearch={handleOnSearch} />
         </HeaderSection>
       </section>

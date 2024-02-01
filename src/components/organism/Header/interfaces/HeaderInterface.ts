@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export interface IHeaderSection {
   title: string;
-  textLink: string;
+  textLink?: string;
   children: ReactNode;
   divider?: boolean;
 }

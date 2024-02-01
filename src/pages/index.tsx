@@ -8,6 +8,7 @@ import Hero from '@/components/organism/Hero/Hero';
 import IngredientsList from '@/components/molecul/List/IngredientList';
 import Link from 'next/link';
 import { IconArrowRight } from '@tabler/icons-react';
+import BackgroundImage from '../assets/images/thumbnail-bg.png';
 
 export default function Home() {
   const { ingredientsList } = useGetIngredientsList();
@@ -18,7 +19,7 @@ export default function Home() {
 
       <div className="my-10"></div>
 
-      <section className="container h-[400px]">
+      <section className="container h-[400px] bg-background-hero">
         <Hero />
       </section>
 

@@ -170,7 +170,12 @@ const IngredientDetailPage = ({ response }: any) => {
                 {mergeIngredients(meals).map(
                   (ingredient: string, index: number) => {
                     return (
-                      <li key={index} className="my-2.5">
+                      <li
+                        key={index}
+                        className={`my-2.5 ${
+                          ingredient === ' ' ? 'hidden' : ''
+                        }`}
+                      >
                         {ingredient}
                       </li>
                     );
@@ -192,12 +197,23 @@ const IngredientDetailPage = ({ response }: any) => {
 
               <div className="mt-5">
                 {mergeMeasurements(meals).map(
-                  (ingredient: string, index: number) => {
+                  (measurement: string, index: number) => {
                     return (
-                      <li key={index} className="my-2.5">
-                        {ingredient}
+                      <li
+                        key={index}
+                        className={`my-2.5 ${
+                          measurement === ' ' ? 'hidden' : ''
+                        }`}
+                      >
+                        {measurement}
                       </li>
                     );
+
+                    // return measurement === '' ? null : (
+                    //   <li key={index} className="my-2.5">
+                    //     {measurement}
+                    //   </li>
+                    // );
                   },
                 )}
               </div>
