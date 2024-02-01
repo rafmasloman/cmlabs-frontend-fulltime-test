@@ -3,9 +3,8 @@
 Simple Website Food Recipe Application using API from [themealdb API](https://themealdb.com).
 ![Screenshot](public/screenshoot fe-tes.png)
 
-
-
 ## Table of Contents
+
 - [Installation Project](#installation-project)
 - [User Instructions](#user-instructions)
 - [Features](#features)
@@ -55,13 +54,14 @@ npm run dev
 
 ## User Instructions
 
-
 1. **Ingredients Page**
+
    - Displays a list of ingredients fetched from the "List of Ingredients" endpoint.
    - When an ingredient is selected, it redirects to the Ingredients Detail page.
    - Includes a feature to search for ingredients by name on the front end.
 
 2. **Ingredients Detail Page**
+
    - Parameter: `ingredient-name`.
    - Displays a list of meals associated with the selected ingredient, using the "Filter by Ingredients" endpoint.
    - When a meal is selected, it redirects to the Meals Detail page.
@@ -72,8 +72,7 @@ npm run dev
    - Displays detailed information about a selected meal, using the "Detail Meal" endpoint.
    - Includes components: Meal Image, Meal Title/Name, Description/Tutorial, Recipe, and an embedded YouTube video.
 
-
-## Feature
+## Features
 
 - [x] List Ingredients
 - [x] Search Ingredients
@@ -88,6 +87,3 @@ This project utilizes the following technologies:
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-
-
-
