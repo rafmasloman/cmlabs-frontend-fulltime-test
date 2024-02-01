@@ -6,6 +6,7 @@
 
 - [Project Image](#project-image)
 - [Installation Project](#installation-project)
+- [Structure Project](#structure-project)
 - [User Instructions](#user-instructions)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
