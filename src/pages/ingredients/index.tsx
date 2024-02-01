@@ -5,6 +5,7 @@ import HeaderSection from '@/components/organism/Header/HeaderSection';
 import MainLayout from '@/components/organism/Layouts/MainLayout';
 import { useGetIngredientsList } from '@/hooks/useGetIngredientsList';
 import { useSearch } from '@/hooks/useSearch';
+import dynamic from 'next/dynamic';
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 
 type Props = {};
