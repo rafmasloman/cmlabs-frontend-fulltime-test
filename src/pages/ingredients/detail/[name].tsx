@@ -18,8 +18,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  console.log('context : ', context);
+
   const response = await InggredientsApiService.GetIngredientsQueryByFilter(
-    context.params?.name! as string,
+    context.params!.name as string,
   );
 
   return { props: { response } };

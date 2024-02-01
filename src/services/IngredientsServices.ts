@@ -2,7 +2,9 @@ import { API_UTILS } from '@/utils/API';
 import axios from 'axios';
 
 class InggredientsApiService {
-  private static API_ENDPOINT = `${API_UTILS.ENDPOINT}`;
+  private static API_ENDPOINT = `${
+    process.env.NEXT_PUBLIC_API_ENDPOINT || API_UTILS.ENDPOINT
+  }`;
 
   static async GetAllIngredientsListQuery() {
     try {
