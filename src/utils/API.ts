@@ -1,4 +1,4 @@
 export const API_UTILS = {
-  ENDPOINT: process.env.NEXT_PUBLIC_API_ENDPOINT,
+  ENDPOINT: 'https://themealdb.com/api/json/v1/1',
   IMAGE_THUMBNAIL_ENDPOINT: 'https://www.themealdb.com/images/ingredients',
 };

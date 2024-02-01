@@ -11,7 +11,7 @@ export const useGetIngredientsList = () => {
 
         setIngredientsList(data);
       } catch (error) {
-        console.log(error);
+        return error;
       }
     };
 

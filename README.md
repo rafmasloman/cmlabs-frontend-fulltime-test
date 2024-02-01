@@ -2,14 +2,23 @@
 
 > Simple Website Food Recipe Application using API from [themealdb API](https://themealdb.com).
 
-![Screenshot](public/screenshoot.png)
-
 ## Table of Contents
 
+- [Project Image](#project-image)
 - [Installation Project](#installation-project)
 - [User Instructions](#user-instructions)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+
+### Project Image
+
+1. Landing Page
+
+![Screenshot](public/screenshoot.png)
+
+2. Melas Detail Page
+
+![Screenshot](public/screenshoot_detail-meal.png)
 
 ### Installation Project
 
@@ -53,6 +62,37 @@ npm run dev
 
 5. Application will be running on port : `http://localhost:3000`.
 
+### Structure Project
+
+**This is your source code tree:**
+
+```
+src
+|-- assets
+   |-- icons
+   |-- images
+|-- components
+   |-- atomic
+   |-- molecul
+   |-- organism
+|-- hooks
+|-- interfaces
+|-- pages
+   |-- ingredients
+          |-- detail
+            |-- [name].tsx
+          |-- index.tsx
+   |-- meals
+          |-- detail
+            |-- [id].tsx
+
+|-- services
+|-- styles
+|-- utils
+...
+
+```
+
 ## User Instructions
 
 1. **Ingredients Page**
@@ -88,3 +128,7 @@ This project utilizes the following technologies:
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
+
+```
+
+```

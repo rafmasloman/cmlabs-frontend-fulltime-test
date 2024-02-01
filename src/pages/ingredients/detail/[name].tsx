@@ -34,8 +34,6 @@ const IngredientDetailPage = ({ response }: any) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  console.log(response?.meals);
-
   const handleOnSearch = (searchTerm: string) => {
     setSearchValue(searchTerm);
   };
@@ -43,9 +41,6 @@ const IngredientDetailPage = ({ response }: any) => {
   const filterMeasurement = response?.meals?.filter((ingredient: any) => {
     return ingredient.strMeal.toLowerCase().includes(searchValue.toLowerCase());
   });
-
-  console.log(filterMeasurement);
-  console.log('search : ', searchValue);
 
   //   const filterIngredients = response?.meals?.filter((ingredient: any) => {
   //     return ingredient.strIngredient

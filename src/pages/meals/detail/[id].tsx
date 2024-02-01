@@ -29,8 +29,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  console.log(context);
-
   const response = await MealsApiService.GetMealDetailQueryApi(
     context.params?.id! as string,
   );
@@ -53,7 +51,6 @@ const IngredientDetailPage = ({ response }: any) => {
   }, [response]);
 
   const instructionSplit = meals?.strInstructions.split('.');
-  console.log('instruct : ', instructionSplit);
 
   return (
     <MainLayout>
