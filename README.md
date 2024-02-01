@@ -1,7 +1,8 @@
 # CMLabs Frontend Fulltime Test
 
-Simple Website Food Recipe Application using API from [themealdb API](https://themealdb.com).
-![Screenshot](public/screenshoot fe-tes.png)
+> Simple Website Food Recipe Application using API from [themealdb API](https://themealdb.com).
+
+![Screenshot](public/screenshoot.png)
 
 ## Table of Contents
 
